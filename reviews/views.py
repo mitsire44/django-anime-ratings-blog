@@ -13,6 +13,13 @@ def home(request):
 
     return render(request, 'reviews/index.html', {'page':page})
 
+def sortByScore(request):
+    review = Review.objects.all().order_by('-userscore')
+    paginator = Paginator(review, 4)
+    page_number = request.GET.get('page')
+    page = paginator.get_page(page_number)
+    return render(request, 'reviews/sortByScore.html', {'page':page})
+
 def search(request):
     if request.method=="POST":
         searched = request.POST['searched']

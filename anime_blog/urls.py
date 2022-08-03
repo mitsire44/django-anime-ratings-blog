@@ -26,6 +26,7 @@ urlpatterns = [
     path('result/<int:anime_pk>/', views.result, name='result'),
     path('blog/', include('blog.urls')),
     path('search/', views.search, name='search'),
+    path('sortByScore/', views.sortByScore, name='sortByScore'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
