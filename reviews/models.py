@@ -14,6 +14,11 @@ class Review(models.Model):
     def __str__(self):
         return self.title
 
+class Comment(models.Model):
+    username = models.CharField(max_length=20)
+    review = models.TextField(max_length=500)
+    anime = models.ForeignKey(Review, on_delete=models.CASCADE)
+    date = models.DateField(auto_now=True, blank=True)
 
 # class Score(models.Model):
 #     # scores = [
